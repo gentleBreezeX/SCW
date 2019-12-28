@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- 
+	thymelaeaf使用步骤
+		1、项目中依赖thymeleaf
+		2、在yml文件中配置thymeleaf
+		3、在HTML页面的html标签内指定引用thymeleaf
+		${}
+			默认获取request域中
+ -->
+	<h3 th:text="${requestKey}">request域中：</h3>
+	<h3 th:text="${session.sessionKey}">session域中：</h3>
+	<h3
+		th:text="${application.appKey}==null?_:'application域中：' +${application.appKey}">application域中：</h3>
+	<div th:if="${list}">
+		<div th:each="member:${list}">
+			<span th:text="${member.id}"></span>
+			<span th:text="${member.username}"></span>
+			<span th:text="${member.loginacct}"></span>
+			<span th:text="${member.userpswd}"></span>
+		</div>
+	</div>
+</body>
+</html>

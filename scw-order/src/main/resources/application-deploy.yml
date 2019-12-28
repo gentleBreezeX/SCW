@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: scw-order
+    
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://47.97.209.0:3306/atcrowdfunding?useSSL=false&useUnicode=true&characterEncoding=UTF-8
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+  redis:
+    host: 47.97.209.0
+    port: 6379  
+    
+mybatis:
+  config-location: classpath:/mybatis/mybatis-config.xml
+  mapper-locations: classpath:/mybatis/mapper/*.xml
+  
+eureka:
+  client:
+    service-url:
+      defaultZone: http://47.97.209.0:8761/eureka/
+  instance:
+    prefer-ip-address: true  
+    ip-address: localhost
+    
+server:
+  port: 9000

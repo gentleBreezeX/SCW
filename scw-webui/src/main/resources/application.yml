@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: scw-webui
+  redis:
+    host: 47.97.209.0
+    port: 6379
+    jedis:
+      pool:
+        max-idle: 100
+  session:
+    timeout: 1800
+    store-type: redis
+  thymeleaf:
+    cache: false # 开发中关闭thymeleaf的缓存，项目上线会开启
+    
+server:
+  port: 10000
+  
+eureka:
+  instance:
+    appname: scw-webui
+    prefer-ip-address: true
+  client: 
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://47.97.209.0:8761/eureka/
+   
+feign:
+  hystrix:
+    enabled: true   
